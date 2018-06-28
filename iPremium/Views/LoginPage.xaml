@@ -1,5 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="iPremium.Views.LoginPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:control="clr-namespace:iPremium.Controls"
+             x:Class="iPremium.Views.LoginPage" BackgroundColor="Black">
     <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="1" Source="name-01.png" HorizontalOptions="Center" VerticalOptions="End"/>
+
+            <StackLayout Padding="0,30,0,0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <control:CustomEntry Placeholder="Username" HorizontalOptions="Center" WidthRequest="200" BackgroundColor="Black" TextColor="White"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
