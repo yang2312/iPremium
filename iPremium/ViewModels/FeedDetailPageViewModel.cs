@@ -60,6 +60,7 @@ namespace iPremium.ViewModels
         #region Methods
         private void NavigateToCalendar()
         {
+            MessagingCenter.Send(this, "InitData",FeedItem);
             MessagingCenter.Send(this, "ChangeToCalendarTab");
         }
         #endregion

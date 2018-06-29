@@ -14,7 +14,7 @@
 
     <Image Grid.Row="0" Aspect="AspectFill" Source="{Binding FeedItem.Image}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
     
-    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,2">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>

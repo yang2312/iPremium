@@ -1,5 +1,73 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="iPremium.Views.SchedulePage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:control="clr-namespace:iPremium.Controls"
+             xmlns:vm="clr-namespace:iPremium.ViewModels"
+             x:Class="iPremium.Views.SchedulePage">
+    <ContentPage.BindingContext>
+        <vm:SchedulePageViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label Style="{StaticResource Key=DefaultH1Style}" Text="MARCAÇÕES" Margin="20,0" VerticalOptions="Center" TextColor="White"/>
+            </Grid>
+
+            <control:CustomListView Grid.Row="1" ItemsSource="{Binding ListSchedules}" SelectedItem="{Binding SelectedSchedule}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true" SeparatorVisibility="None">
+                <x:Arguments>
+                     <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
+                  </x:Arguments>            
+                <control:CustomListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="65">
+                            <ViewCell.View>
+                                <Grid HorizontalOptions="FillAndExpand" RowSpacing="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" Margin="20,0,0,0"/>
+
+                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Time}" TextColor="Black" Grid.Row="1" Margin="20,0,0,0"/>
+
+                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding Status}" TextColor="#6cd100" Grid.Column="1" Margin="0,0,20,0">
+                                        <Label.Triggers>
+                                          <DataTrigger TargetType="Label"
+                                              Binding="{Binding Status}"
+                                              Value="Pendente">
+                                              <Setter Property="TextColor" Value="Black" />
+                                          </DataTrigger>
+                                      </Label.Triggers>
+                                    </Label>
+
+                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Code}" TextColor="#0054fe" Grid.Row="1" Grid.Column="1" Margin="0,0,20,0"/>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </control:CustomListView.ItemTemplate>
+            </control:CustomListView>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{StaticResource DefaultButtonStyle}" Text="CRIAR NOVA" Command="{Binding NavigateToCalendarCommand}" TextColor="#0054fe" BorderColor="#0054fe" Grid.Column="1" VerticalOptions="Start"/>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
