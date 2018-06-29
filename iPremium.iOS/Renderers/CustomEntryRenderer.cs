@@ -13,10 +13,10 @@ namespace iPremium.iOS.Renderers
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
-            Control.TextAlignment = UITextAlignment.Center;
+            
             Control.Layer.BorderColor = UIColor.White.CGColor;
             Control.Layer.BorderWidth = 1;
-            Control.Layer.CornerRadius = 5;
+            Control.Layer.CornerRadius = 10;
         }
     }
 }

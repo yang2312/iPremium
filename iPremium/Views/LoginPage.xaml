@@ -19,9 +19,25 @@
 
             <Image Grid.Column="1" Source="name-01.png" HorizontalOptions="Center" VerticalOptions="End"/>
 
-            <StackLayout Padding="0,30,0,0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <control:CustomEntry Placeholder="Username" HorizontalOptions="Center" WidthRequest="200" BackgroundColor="Black" TextColor="White"/>
-            </StackLayout>
+            <Grid Grid.ColumnSpan="3" Grid.Row="1" Margin="0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="15">
+                    <control:CustomEntry HeightRequest="30" Placeholder="Username" HorizontalTextAlignment="Center" FontSize="10" HorizontalOptions="FillAndExpand" BackgroundColor="Black" TextColor="White"/>
+
+                    <control:CustomEntry HeightRequest="30" Placeholder="Password" HorizontalTextAlignment="Center" FontSize="10" HorizontalOptions="FillAndExpand" BackgroundColor="Black" TextColor="White"/>
+
+                    <Button CornerRadius="10" HorizontalOptions="FillAndExpand" Text="LOGIN" FontSize="10" BackgroundColor="White" HeightRequest="30" TextColor="Black"/>
+
+                    <Button Text="Recupera Senha." BackgroundColor="Transparent" BorderWidth="0" Margin="0,5" HorizontalOptions="FillAndExpand" TextColor="White" FontSize="10"/>
+                </StackLayout>
+            </Grid>
+
+            <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Não tenho conta. Registar." BackgroundColor="Transparent" BorderWidth="0" HorizontalOptions="Center" VerticalOptions="Start" TextColor="White" FontSize="10"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
