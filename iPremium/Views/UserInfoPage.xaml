@@ -1,5 +1,45 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="iPremium.Views.UserInfoPage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:iPremium.ViewModels"
+             x:Class="iPremium.Views.UserInfoPage">
+    <ContentPage.BindingContext>
+        <vm:UserInfoPageViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="125"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.RowSpan="2" Aspect="AspectFill" Source="mac1.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                <BoxView Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" Opacity="0.5"/>
+                <Label Grid.Row="1" Style="{StaticResource DefaultH1Style}" Text="PERFIL" Margin="20,0"/>
+            </Grid>
+
+            <StackLayout Grid.Row="1" Orientation="Vertical" Margin="20,30">
+                <Label Style="{StaticResource DefaultH2Style}" Text="OLA USERNAME" FontAttributes="Bold" TextColor="Black"/>
+                <Label Style="{StaticResource DefaultH2Style}" Text="userName@email.com" TextColor="Black"/>
+
+                <Button Text="mudar password" Margin="0,10" TextColor="Black" Style="{StaticResource NonBorderStyle}" HorizontalOptions="Start"/>
+            </StackLayout>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{StaticResource DefaultButtonStyle}" Text="Logout" Command="{Binding NavigateToCalendarCommand}" TextColor="Black" BorderColor="Black" Grid.Column="1" VerticalOptions="Start"/>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

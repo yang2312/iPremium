@@ -13,11 +13,7 @@
                 <Setter Property="BackgroundColor" Value="Black"/>
                 <Setter Property="TextColor" Value="White"/>
             </Style>
-            <Style TargetType="Button" BasedOn="{StaticResource Key=DefaultButtonStyle}" x:Key="NonBorderStyle">
-                <Setter Property="BorderWidth" Value="0"/>
-                <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="TextColor" Value="White"/>
-            </Style>
+
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
