@@ -173,7 +173,9 @@
     <BundleResource Include="Resources\screen_learn.png" />
     <BundleResource Include="Resources\shutterstock.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\forward.png" />
+  </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\INTRO.png" />
   </ItemGroup>

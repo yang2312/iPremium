@@ -1,5 +1,45 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="iPremium.Views.FeedsPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:iPremium.ViewModels"
+             x:Class="iPremium.Views.FeedsPage">
+    <ContentPage.BindingContext>
+        <vm:FeedsPageViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
+        <ListView ItemsSource="{Binding ListFeeds}" SelectedItem="{Binding SelectedFeedItem}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HeightRequest="210" Padding="0,2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Background -->
+                                <Image Grid.RowSpan="4" Grid.ColumnSpan="2" Source="{Binding Image}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+                                <Image Grid.Column="1" Grid.RowSpan="2" Source="forward.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                                <Label Margin="10,0" Text="{Binding Title}" Style="{StaticResource DefaultH1Style}" VerticalTextAlignment="End" Grid.Row="2" VerticalOptions="FillAndExpand"/>
+
+                                <Grid Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+                                    <Label Margin="10,0" Text="{Binding SubTitle}" Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+                                </Grid>
+                                
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

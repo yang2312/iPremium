@@ -11,19 +11,28 @@ namespace iPremium.ViewModels
     {
         #region Commands
         public ICommand RegisterCommand { get; }
+        public ICommand LoginCommand { get; }
         #endregion
 
         #region Constructor
         public LoginPageViewModel()
         {
             RegisterCommand = new Command(NavigateToRegisterPage);
+
+            LoginCommand = new Command(Login);
         }
 
         #endregion
 
         #region Methods
 
-        private void NavigateToRegisterPage(object obj)
+        private void Login()
+        {
+            var page = new NavigationPage(new MainTabbedPage());
+            App.Current.MainPage = new MainTabbedPage();
+        }
+
+        private void NavigateToRegisterPage()
         {
             App.Current.MainPage = new RegisterPage();
         }

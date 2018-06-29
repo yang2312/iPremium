@@ -48,7 +48,7 @@
 
                     <control:CustomEntry Placeholder="Password" Style="{StaticResource Key=LoginEntryStyle}"/>
 
-                    <Button Text="LOGIN" Style="{StaticResource DefaultButtonStyle}"/>
+                    <Button Text="LOGIN" Style="{StaticResource DefaultButtonStyle}" Command=" {Binding LoginCommand}"/>
 
                     <Button Text="Recupera Senha." Margin="0,5" Style="{StaticResource NonBorderStyle}"/>
                 </StackLayout>
