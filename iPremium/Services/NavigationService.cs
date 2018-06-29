@@ -100,6 +100,7 @@ namespace iPremium.Services
                 }
             }
         }
+        
         // Register pages and add them to the dictionary:
         public void Configure(AppPages pageKey, Type pageType)
         {

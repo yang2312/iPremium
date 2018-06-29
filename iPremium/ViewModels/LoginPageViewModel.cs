@@ -28,7 +28,6 @@ namespace iPremium.ViewModels
 
         private void Login()
         {
-            var page = new NavigationPage(new MainTabbedPage());
             App.Current.MainPage = new MainTabbedPage();
         }
 

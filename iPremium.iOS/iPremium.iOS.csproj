@@ -179,4 +179,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\INTRO.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.png" />
+  </ItemGroup>
 </Project>

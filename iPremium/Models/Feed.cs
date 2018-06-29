@@ -36,14 +36,14 @@ namespace iPremium.Models
                 OnPropertyChanged(nameof(Image));
             }
         }
-        private string _desciption;
-        public string Desciption
+        private string _description;
+        public string Description
         {
-            get { return _desciption; }
+            get { return _description; }
             set
             {
-                _desciption = value;
-                OnPropertyChanged(nameof(Desciption));
+                _description = value;
+                OnPropertyChanged(nameof(Description));
             }
         }
     }

@@ -10,6 +10,12 @@ namespace iPremium.Views
         public FeedsPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            FeedListView.SelectedItem = null;
         }
     }
 }
