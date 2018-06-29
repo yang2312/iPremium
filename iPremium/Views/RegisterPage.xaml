@@ -1,5 +1,48 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="iPremium.Views.RegisterPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:iPremium.ViewModels"
+             xmlns:control="clr-namespace:iPremium.Controls"
+             x:Class="iPremium.Views.RegisterPage">
+    <ContentPage.BindingContext>
+        <vm:RegisterPageViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="1" Source="name-02.png" HorizontalOptions="Center" VerticalOptions="End"/>
+
+            <Grid Grid.ColumnSpan="3" Grid.Row="1" Margin="0,40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="15">
+                    <control:CustomEntry Placeholder="Name" Style="{StaticResource Key=DefaultEntryStyle}"/>
+
+                    <control:CustomEntry Placeholder="email@email.com" Style="{StaticResource Key=DefaultEntryStyle}"/>
+                    
+                    <control:CustomEntry Placeholder="Telefone" Style="{StaticResource Key=DefaultEntryStyle}"/>
+                    
+                    <control:CustomEntry Placeholder="Password" Style="{StaticResource Key=DefaultEntryStyle}"/>
+
+                    <Button Text="REGISTAR" Style="{StaticResource DefaultButtonStyle}" BackgroundColor="Black" BorderColor="Black" TextColor="White"/>
+
+                    <Button Text="COSTAS" Style="{StaticResource DefaultButtonStyle}" BackgroundColor="Black" BorderColor="Black" TextColor="White" Command="{Binding BackCommand}"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
