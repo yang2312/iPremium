@@ -35,6 +35,7 @@ namespace iPremium.ViewModels
 
         #region Commands
         public ICommand GoBackCommand { get; }
+        public ICommand NavigateToCalendarCommand { get; }
         #endregion
 
         #region Constructor
@@ -49,12 +50,18 @@ namespace iPremium.ViewModels
                 FeedItem = obj;
             });
             GoBackCommand = new Command(() => IsShowingFeedDetail = false);
+
+            NavigateToCalendarCommand = new Command(NavigateToCalendar);
         }
+
+
         #endregion
 
-        
-
         #region Methods
+        private void NavigateToCalendar()
+        {
+            MessagingCenter.Send(this, "ChangeToCalendarTab");
+        }
         #endregion
     }
 }

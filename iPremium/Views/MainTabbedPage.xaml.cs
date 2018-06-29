@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using iPremium.ViewModels;
 using Xamarin.Forms;
 
 namespace iPremium.Views
@@ -10,14 +10,13 @@ namespace iPremium.Views
         public MainTabbedPage()
         {
             InitializeComponent();
-            var home = new FeedsPage() { Icon = "home.png", Title = "Feed" };
-            App.NavigationService.Initialize(new NavigationPage(home));
 
-            Children.Add(home);
+            Children.Add(new FeedsPage() { Icon = "home.png", Title = "Feed" });
             Children.Add(new SchedulePage() { Icon = "calendar.png", Title = "Marcação" });
             Children.Add(new UserInfoPage() { Icon = "gender.png", Title = "Perfil" });
             Children.Add(new AboutPage() { Icon = "double.png", Title = "Double" });
 
+            MessagingCenter.Subscribe<FeedDetailPageViewModel>(this, "ChangeToCalendarTab", (sender) => CurrentPage = Children[1]);
         }
     }
 }

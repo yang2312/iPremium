@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:iPremium.ViewModels"
@@ -27,7 +27,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <!-- Background -->
-                                    <Image Grid.RowSpan="4" Grid.ColumnSpan="2" Source="{Binding Image}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <Image Grid.RowSpan="4" Grid.ColumnSpan="2" Aspect="AspectFill" Source="{Binding Image}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
                                     <Image Grid.Column="1" Grid.RowSpan="2" Source="forward.png" HorizontalOptions="Center" VerticalOptions="Center"/>
 

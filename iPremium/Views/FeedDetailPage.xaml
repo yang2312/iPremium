@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:iPremium.ViewModels"
+             xmlns:vm="clr-namespace:iPremium.ViewModels" Margin="0,20,0,0"
              x:Class="iPremium.Views.FeedDetailPage" BackgroundColor="White" IsVisible="{Binding IsShowingFeedDetail}">
     <Grid.BindingContext>
         <vm:FeedDetailPageViewModel />
@@ -12,7 +12,7 @@
         <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <Image Grid.Row="0"  Source="{Binding FeedItem.Image}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+    <Image Grid.Row="0" Aspect="AspectFill" Source="{Binding FeedItem.Image}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
     
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,2">
         <Grid.RowDefinitions>
@@ -46,6 +46,6 @@
             <ColumnDefinition Width="2.5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Style="{StaticResource DefaultButtonStyle}" Text="MARCAR ASSISTÊNCIA" TextColor="Blue" BorderColor="Blue" Grid.Column="1" VerticalOptions="Start"/>
+        <Button Style="{StaticResource DefaultButtonStyle}" Text="MARCAR ASSISTÊNCIA" Command="{Binding NavigateToCalendarCommand}" TextColor="#0054fe" BorderColor="#0054fe" Grid.Column="1" VerticalOptions="Start"/>
     </Grid>
 </Grid>
