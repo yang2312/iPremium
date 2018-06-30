@@ -61,12 +61,17 @@ namespace iPremium.ViewModels
 
         #region Commands
         public ICommand AddNewCommand { get; }
+        public ICommand ShowAddNewPopupCommand { get; }
+        public ICommand DisposeAddNewPopupCommand { get; }
         #endregion
 
         #region Constructor
         public SchedulePageViewModel()
         {
             AddNewCommand = new Command(AddNewSchedule);
+            ShowAddNewPopupCommand = new Command(() => IsShowingAddNewPopUp = true);
+            DisposeAddNewPopupCommand = new Command(() => IsShowingAddNewPopUp = false);
+
             InitData(null);
             MessagingCenter.Subscribe<FeedDetailPageViewModel,Feed>(this, "InitData", (sender,obj) => InitData(obj));
         }

@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace iPremium.Views
 {
-    public partial class AppointmentDetailPage : ContentPage
+    public partial class AppointmentDetailPage
     {
         public AppointmentDetailPage()
         {
