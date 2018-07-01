@@ -25,6 +25,7 @@
                 <Setter Property="HorizontalTextAlignment" Value="Start"/>
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
                 <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="FontFamily" Value="AvenirNext-Regular"/>
             </Style>
             <Style TargetType="Label" x:Key="DefaultH1Style" BasedOn="{StaticResource DefaultLabeStyle}">
                 <Setter Property="FontSize" Value="30"/>

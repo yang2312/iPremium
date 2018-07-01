@@ -24,9 +24,9 @@
             </Grid>
 
             <StackLayout Grid.Row="1" Margin="20,0" HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="10">
-                <Label Style="{StaticResource DefaultH2Style}" Text="Nova Parceria iPremium®!" LineBreakMode="WordWrap" TextColor="Black"/>
-                <Label Style="{StaticResource DefaultH2Style}" TextColor="Black" Text="A Double, sediada em Caldas da Rainha, é a nossa Parceira Oficial no Desenvolvimento de Aplicações Móveis (App) e está pronta para o ajudar a entrar rapidamente no Mundo do Mobile!" LineBreakMode="WordWrap"/>
-                <Label Style="{StaticResource DefaultH2Style}" TextColor="Black" Text="Se necessita de uma App, Serviços de Desenvolvimento Web ou Mobile, não precisa de procurar mais! A Double é a empresa ideal!" LineBreakMode="WordWrap"/>
+                <Label Style="{StaticResource DefaultH3Style}" Text="Nova Parceria iPremium®!" LineBreakMode="WordWrap" TextColor="Black"/>
+                <Label Style="{StaticResource DefaultH3Style}" TextColor="Black" Text="A Double, sediada em Caldas da Rainha, é a nossa Parceira Oficial no Desenvolvimento de Aplicações Móveis (App) e está pronta para o ajudar a entrar rapidamente no Mundo do Mobile!" LineBreakMode="WordWrap"/>
+                <Label Style="{StaticResource DefaultH3Style}" TextColor="Black" Text="Se necessita de uma App, Serviços de Desenvolvimento Web ou Mobile, não precisa de procurar mais! A Double é a empresa ideal!" LineBreakMode="WordWrap"/>
 
                 <Grid Grid.Row="2" Margin="0,20">
                     <Grid.ColumnDefinitions>
