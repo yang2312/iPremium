@@ -41,13 +41,10 @@ namespace iPremium.ViewModels
         #region Constructor
         public FeedDetailPageViewModel()
         {
-            MessagingCenter.Subscribe<FeedsPageViewModel>(this, "ShowModal", (sender) =>
-            {
-                IsShowingFeedDetail = true;
-            });
             MessagingCenter.Subscribe<FeedsPageViewModel,Feed>(this, "UpdateItem", (sender,obj) =>
             {
                 FeedItem = obj;
+                IsShowingFeedDetail = true;
             });
             GoBackCommand = new Command(() => IsShowingFeedDetail = false);
 

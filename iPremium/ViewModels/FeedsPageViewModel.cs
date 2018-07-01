@@ -37,7 +37,6 @@ namespace iPremium.ViewModels
                 if(_selectedFeedItem != null)
                 {
                     MessagingCenter.Send(this, "UpdateItem",_selectedFeedItem);
-                    MessagingCenter.Send(this, "ShowModal");
                 }
             }
         }

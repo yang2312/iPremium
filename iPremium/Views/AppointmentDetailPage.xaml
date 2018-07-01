@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms" 
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-      Margin="0,20,0,0" BackgroundColor="White" IsVisible="{Binding IsShowingScheduleDetail}"
+      BackgroundColor="White" IsVisible="{Binding IsShowingScheduleDetail}"
       xmlns:vm="clr-namespace:iPremium.ViewModels"
       x:Class="iPremium.Views.AppointmentDetailPage">
     <Grid.BindingContext>
@@ -18,7 +18,7 @@
         <Label Style="{StaticResource Key=DefaultH1Style}" Text="MARCAÇÕES" Margin="20,0" VerticalOptions="Center" TextColor="White"/>
     </Grid>
 
-    <Grid HorizontalOptions="FillAndExpand" RowSpacing="5" Grid.Row="1">
+    <Grid HorizontalOptions="FillAndExpand" RowSpacing="5" Grid.Row="1" BackgroundColor="#f8f8f8">
         <Grid.RowDefinitions>
             <RowDefinition Height="65"/>
             <RowDefinition Height="*"/>
@@ -34,11 +34,11 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" Margin="20,0,0,0"/>
+            <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding ScheduleItem.Name}" TextColor="Black" FontAttributes="Bold" Margin="20,0,0,0"/>
 
-            <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Time}" TextColor="Black" Grid.Row="1" Margin="20,0,0,0"/>
+            <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding ScheduleItem.Time}" TextColor="Black" Grid.Row="1" Margin="20,0,0,0"/>
 
-            <Label Style="{StaticResource DefaultH3Style}" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="{Binding Status}" TextColor="#6cd100" Grid.Column="1" Grid.RowSpan="2" Margin="0,0,20,0">
+            <Label Style="{StaticResource DefaultH3Style}" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="{Binding ScheduleItem.Status}" TextColor="#6cd100" Grid.Column="1" Grid.RowSpan="2" Margin="0,0,20,0">
                 <Label.Triggers>
                   <DataTrigger TargetType="Label"
                       Binding="{Binding Status}"
@@ -49,7 +49,7 @@
             </Label>
         </Grid>
         
-        <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Description}" TextColor="Black" Grid.Row="1" Margin="20,0"/>
+        <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding ScheduleItem.Description}" TextColor="Black" Grid.Row="1" Margin="20,0"/>
 
     </Grid>
 
@@ -60,9 +60,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackLayout Grid.Column="1" Spacing="20">
-            <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Code}" TextColor="#0054fe" Grid.Row="1" Grid.Column="1" Margin="0,0,20,0"/>
-            <Button Style="{StaticResource DefaultButtonStyle}" Text="CANCELAR MARCAÇÃO" Command="{Binding ShowAddNewPopupCommand}" TextColor="#fc1515" BorderColor="#fc1515" Grid.Column="1" VerticalOptions="Start"/>    
+        <StackLayout Grid.Column="1" Spacing="50" VerticalOptions="CenterAndExpand">
+            <Label Style="{StaticResource DefaultH2Style}" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Text="{Binding ScheduleItem.Code}" TextColor="#0054fe" Grid.Column="1"/>
+            <Button Style="{StaticResource DefaultButtonStyle}" Text="CANCELAR MARCAÇÃO" Command="{Binding ShowCancelPopupCommand}" TextColor="#fc1515" BorderColor="#fc1515" Grid.Column="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>    
         </StackLayout>
     </Grid>
 </Grid>

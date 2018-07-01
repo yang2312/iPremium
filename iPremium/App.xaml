@@ -24,6 +24,7 @@
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="HorizontalTextAlignment" Value="Start"/>
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
             </Style>
             <Style TargetType="Label" x:Key="DefaultH1Style" BasedOn="{StaticResource DefaultLabeStyle}">
                 <Setter Property="FontSize" Value="30"/>

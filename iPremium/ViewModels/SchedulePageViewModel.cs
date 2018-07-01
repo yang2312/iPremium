@@ -48,15 +48,6 @@ namespace iPremium.ViewModels
             }
         }
 
-        private bool _isShowingScheduleDetail;
-        public bool IsShowingScheduleDetail
-        {
-            get { return _isShowingScheduleDetail; }
-            set
-            {
-                SetProperty(ref _isShowingScheduleDetail, value);
-            }
-        }
         #endregion
 
         #region Commands
@@ -81,14 +72,14 @@ namespace iPremium.ViewModels
         #region Methods
         void InitData(Feed item)
         {
-            ListSchedules = new ObservableCollection<Schedule>() { new Schedule{ Name="Assistência Técnica",Time = DateTime.Now.ToString(),Status="Confirmado", Code="970 834 847"},
+            ListSchedules = new ObservableCollection<Schedule>() { new Schedule{ Name="Assistência Técnica",Time = DateTime.Now.ToString(),Status="Confirmado", Code="970 834 847",Description="et sf dgetrerw cdfsda cvbdb dfeferw dbgnyj utyt yretr gf b ngfn hm nmnvb g rg rt r tes v  vbf bdb g nthththgn f gn ghd fg df gdertrg dfbhm gjt dgs v c fhd gwerwtsfg dfb dg fn f t"},
                 new Schedule{ Name="Vendas",Time = DateTime.Now.ToString(),Status="Confirmado", Code="970 834 847"},
                 new Schedule{ Name="Assistência Técnica",Time = DateTime.Now.ToString(),Status="Pendente", Code="970 834 847"},
                 new Schedule{ Name="Assistência Técnica",Time = DateTime.Now.ToString(),Status="Confirmado", Code="970 834 847"}};   
         }
         private void AddNewSchedule()
         {
-            
+             
         }
         #endregion
     }
