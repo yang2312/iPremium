@@ -18,5 +18,6 @@ namespace iPremium.Views
 
             MessagingCenter.Subscribe<FeedDetailPageViewModel>(this, "ChangeToCalendarTab", (sender) => CurrentPage = Children[1]);
         }
+
     }
 }

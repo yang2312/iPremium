@@ -29,10 +29,20 @@ namespace iPremium.ViewModels
                 SetProperty(ref _isShowingScheduleDetail, value);
             }
         }
+        private bool _isShowingCancelingPopUp;
+        public bool IsShowingCancelingPopUp{
+            get { return _isShowingCancelingPopUp; }
+            set
+            {
+                SetProperty(ref _isShowingCancelingPopUp, value);
+            }
+        }
         #endregion
 
         #region Command
         public ICommand ShowCancelPopupCommand { get; }
+        public ICommand CloseCancelPopupCommand { get; }
+        public ICommand GoBackCommand { get; }
         #endregion
 
         #region Constructor
@@ -43,7 +53,16 @@ namespace iPremium.ViewModels
                     ScheduleItem = obj;
                     IsShowingScheduleDetail = true;
                 });
+            GoBackCommand = new Command(() => IsShowingScheduleDetail = false);
 
+            ShowCancelPopupCommand = new Command(() =>
+            {
+                IsShowingCancelingPopUp = true;
+            });
+            CloseCancelPopupCommand = new Command(() =>
+            {
+                IsShowingCancelingPopUp = false;
+            });
         }
         #endregion  
     }

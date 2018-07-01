@@ -15,7 +15,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Image Grid.RowSpan="2" Aspect="AspectFill" Source="mac1.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                <Image Grid.RowSpan="2" Aspect="AspectFill" Source="shutterstock.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
                 <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" BackgroundColor="#00cccc">
                     <Label Style="{StaticResource DefaultH3Style}" Text="DESIGN &amp; DEVELOPMENT" Margin="20,0"/>
