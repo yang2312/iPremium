@@ -144,5 +144,13 @@ namespace iPremium.Models
                 OnPropertyChanged(nameof(AssignedTo));
             }
         }
+
+        public static explicit operator Schedule(CreateBookingModel model){
+            return new Schedule {
+                Title = model.Title,
+                Start = model.Start,
+                Status = Enum.GetName(typeof(BookingStatus),model.Status)
+            };
+        }
     }
 }

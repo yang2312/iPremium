@@ -45,6 +45,10 @@
             </ListView>
 
             <view:FeedDetailPage HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            <Grid IsVisible="{Binding IsBusy}" BackgroundColor="Black" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ActivityIndicator  IsRunning="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="White" HeightRequest="50" WidthRequest="50"/>
+            </Grid>
         </Grid>
         
     </ContentPage.Content>

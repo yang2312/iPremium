@@ -60,7 +60,10 @@ namespace iPremium.ViewModels
         {
             var result = await ApiService.Instance.HandleMemberLogin(UserName, Password);
             if (result)
-                App.Current.MainPage = new MainTabbedPage();
+            {
+                App.UserInfo = new Models.Account { Name = UserName, Password = Password };
+                App.Current.MainPage = new MainTabbedPage();   
+            }
             else
                 await App.Current.MainPage.DisplayAlert("Atenção","Nome de usuário ou senha incorretos","Cancel");
         }

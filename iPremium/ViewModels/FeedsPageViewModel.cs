@@ -59,9 +59,11 @@ namespace iPremium.ViewModels
 
         #region Methods
         async void InitData(){
+            IsBusy = true;
             var listFeeds = await ApiService.Instance.GetServices();
             if (listFeeds != null)
                 ListFeeds = new ObservableCollection<Feed>(listFeeds);
+            IsBusy = false;
         }
         #endregion
     }

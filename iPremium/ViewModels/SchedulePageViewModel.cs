@@ -58,13 +58,35 @@ namespace iPremium.ViewModels
                 SetProperty(ref _isShowingAddNewPopUp, value);
             }
         }
-
+        private bool _isRefreshing = false;
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                SetProperty(ref _isRefreshing, value);
+            }
+        }
         #endregion
 
         #region Commands
         public ICommand AddNewCommand { get; }
         public ICommand ShowAddNewPopupCommand { get; }
         public ICommand DisposeAddNewPopupCommand { get; }
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    IsRefreshing = true;
+
+                    InitData();
+
+                    IsRefreshing = false;
+                });
+            }
+        }
         #endregion
 
         #region Constructor
@@ -89,15 +111,18 @@ namespace iPremium.ViewModels
         #region Methods
         async void InitData()
         {
+            IsBusy = true;
             if(App.UserInfo != null)
             {
                 var list = await ApiService.Instance.GetBookingsForCustomer(App.UserInfo.Username);
                 if (list != null)
                     ListSchedules = new ObservableCollection<Schedule>(list);
             }
+            IsBusy = false;
         }
         private async void AddNewSchedule()
         {
+            IsBusy = true;
             if(App.UserInfo == null){
                 App.Current.MainPage = new LoginPage();
             }
@@ -105,8 +130,11 @@ namespace iPremium.ViewModels
 
             await App.Current.MainPage.DisplayAlert("Notar", result ? "Faça o calendário bem sucedido" : "Confirmar um compromisso", "OK");
 
-            IsShowingAddNewPopUp = false;
+            if (result)
+                ListSchedules.Add((Schedule)NewBookingItem);
 
+            IsShowingAddNewPopUp = false;
+            IsBusy = false;
         }
         #endregion
     }

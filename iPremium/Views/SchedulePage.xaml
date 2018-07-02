@@ -21,7 +21,7 @@
             </Grid>
 
             <control:CustomListView Grid.Row="1" ItemsSource="{Binding ListSchedules}" SelectedItem="{Binding SelectedSchedule}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                      HasUnevenRows="true" SeparatorVisibility="None">
+                      HasUnevenRows="true" SeparatorVisibility="None" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
                 <x:Arguments>
                      <ListViewCachingStrategy>RecycleElement</ListViewCachingStrategy>
                   </x:Arguments>            
@@ -100,6 +100,10 @@
                 </Frame>
             </Grid>
             <view:AppointmentDetailPage Grid.RowSpan="3"/>
+
+            <Grid IsVisible="{Binding IsBusy}" Grid.RowSpan="3" BackgroundColor="Black" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ActivityIndicator  IsRunning="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="White" HeightRequest="50" WidthRequest="50"/>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
