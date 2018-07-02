@@ -76,8 +76,10 @@ namespace iPremium.ViewModels
 
             if(result != null){
                 await App.Current.MainPage.DisplayAlert("Notar", "Registro bem sucedido.", "OK");
-                App.Current.MainPage = new MainTabbedPage();
+                App.Current.MainPage = new LoginPage();
             }
+            else
+                await App.Current.MainPage.DisplayAlert("Notar", "Registro falhou.", "OK");
         }
         #endregion
     }

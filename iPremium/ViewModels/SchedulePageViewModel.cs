@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using iPremium.Models;
+using iPremium.Services;
+using iPremium.Views;
 using Xamarin.Forms;
 
 namespace iPremium.ViewModels
@@ -72,20 +74,39 @@ namespace iPremium.ViewModels
             ShowAddNewPopupCommand = new Command(() => IsShowingAddNewPopUp = true);
             DisposeAddNewPopupCommand = new Command(() => IsShowingAddNewPopUp = false);
 
-            InitData(null);
-            MessagingCenter.Subscribe<FeedDetailPageViewModel,Feed>(this, "InitData", (sender,obj) => InitData(obj));
+            InitData();
+            MessagingCenter.Subscribe<FeedDetailPageViewModel>(this, "InitData", (sender) => InitData());
+
+            MessagingCenter.Subscribe<AppointmentDetailPageViewModel>(this, "RemoveItemSuccessfully", (sender) =>
+            {
+                IsShowingAddNewPopUp = false;
+                InitData();
+            });
         }
 
         #endregion
 
         #region Methods
-        void InitData(Feed item)
+        async void InitData()
         {
-            
+            if(App.UserInfo != null)
+            {
+                var list = await ApiService.Instance.GetBookingsForCustomer(App.UserInfo.Username);
+                if (list != null)
+                    ListSchedules = new ObservableCollection<Schedule>(list);
+            }
         }
-        private void AddNewSchedule()
+        private async void AddNewSchedule()
         {
-             
+            if(App.UserInfo == null){
+                App.Current.MainPage = new LoginPage();
+            }
+            var result = await ApiService.Instance.SaveBooking(NewBookingItem);
+
+            await App.Current.MainPage.DisplayAlert("Notar", result ? "Faça o calendário bem sucedido" : "Confirmar um compromisso", "OK");
+
+            IsShowingAddNewPopUp = false;
+
         }
         #endregion
     }

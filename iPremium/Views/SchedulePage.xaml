@@ -94,7 +94,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Button Text="Cancel" HorizontalOptions="FillAndExpand" HeightRequest="45" BorderWidth="1" BorderColor="#f9ffff" Command="{Binding DisposeAddNewPopupCommand}"/>
-                            <Button Text="OK" HorizontalOptions="FillAndExpand" HeightRequest="45" Grid.Column="1" BorderWidth="1" BorderColor="#f9ffff"/>
+                            <Button Text="OK" HorizontalOptions="FillAndExpand" HeightRequest="45" Grid.Column="1" BorderWidth="1" BorderColor="#f9ffff" Command="{Binding AddNewCommand}"/>
                         </Grid>
                     </StackLayout>
                 </Frame>

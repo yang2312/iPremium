@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using iPremium.Models;
+using iPremium.Services;
 using Xamarin.Forms;
 
 namespace iPremium.ViewModels
@@ -43,6 +44,7 @@ namespace iPremium.ViewModels
         public ICommand ShowCancelPopupCommand { get; }
         public ICommand CloseCancelPopupCommand { get; }
         public ICommand GoBackCommand { get; }
+        public ICommand CancelBookingCommand { get; }
         #endregion
 
         #region Constructor
@@ -62,6 +64,18 @@ namespace iPremium.ViewModels
             CloseCancelPopupCommand = new Command(() =>
             {
                 IsShowingCancelingPopUp = false;
+            });
+            CancelBookingCommand = new Command(async () => {
+                var result = await ApiService.Instance.CancelBooking(ScheduleItem);
+
+                await App.Current.MainPage.DisplayAlert("Notar", result ? "Compromisso cancelado com sucesso" : "Cancelamento de nomeação sem sucesso", "OK");
+
+                if(result)
+                {
+                    IsShowingCancelingPopUp = false;
+                    IsShowingScheduleDetail = false;
+                    MessagingCenter.Send(this, "RemoveItemSuccessfully");
+                }
             });
         }
         #endregion  

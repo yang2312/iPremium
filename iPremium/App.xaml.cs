@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using iPremium.Views;
 using iPremium.Services;
 using iPremium.Enums;
+using iPremium.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace iPremium
@@ -16,6 +17,15 @@ namespace iPremium
             get
             {
                 return _navigationService ?? (_navigationService = new NavigationService());
+            }
+        }
+
+        private static Account _userInfo;
+        public static Account UserInfo
+        {
+            get { return _userInfo ?? (_userInfo = new Account()); }
+            set{
+                _userInfo = value;
             }
         }
 

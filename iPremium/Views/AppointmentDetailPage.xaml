@@ -88,7 +88,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button Text="NÃO" HorizontalOptions="FillAndExpand" HeightRequest="45" BorderWidth="1" BorderColor="#f9ffff" Command="{Binding CloseCancelPopupCommand}"/>
-                    <Button Text="SIM" HorizontalOptions="FillAndExpand" HeightRequest="45" Grid.Column="1" BorderWidth="1" BorderColor="#f9ffff"/>
+                    <Button Text="SIM" HorizontalOptions="FillAndExpand" HeightRequest="45" Grid.Column="1" BorderWidth="1" BorderColor="#f9ffff" Command="{Binding CancelBookingCommand}"/>
                 </Grid>
             </StackLayout>
         </Frame>
