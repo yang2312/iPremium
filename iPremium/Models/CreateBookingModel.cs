@@ -49,7 +49,7 @@ namespace iPremium.Models
         private string _customer;
         public string Customer
         {
-            get { return _customer; }
+            get { return App.UserInfo != null ? App.UserInfo.Name : _customer; }
             set
             {
                 _customer = value;

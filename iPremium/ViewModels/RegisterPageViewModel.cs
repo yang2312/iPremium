@@ -72,9 +72,20 @@ namespace iPremium.ViewModels
             App.Current.MainPage = new LoginPage();
         }
         private async void Register(){
+            if(!ValidateService.Instance.ValidateUserName(Name,Email))
+            {
+                await App.Current.MainPage.DisplayAlert("Notar", "Nome de usuário é o mesmo que e-mail.", "OK");
+                return;
+            }
+            else if(!ValidateService.Instance.ValidatePassword(Password))
+            {
+                await App.Current.MainPage.DisplayAlert("Notar", "O tamanho mínimo requerido da senha é 8.", "OK");
+                return;
+            }
+
             var result = await ApiService.Instance.HandleMemberRegistration(Name, Password, Email, Phone);
 
-            if(result != null){
+            if(result.Success){
                 await App.Current.MainPage.DisplayAlert("Notar", "Registro bem sucedido.", "OK");
                 App.Current.MainPage = new LoginPage();
             }

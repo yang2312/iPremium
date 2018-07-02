@@ -36,7 +36,7 @@
 
                     <control:CustomEntry Placeholder="Telefone" Text="{Binding Phone}" Style="{StaticResource Key=DefaultEntryStyle}"/>
                     
-                    <control:CustomEntry Placeholder="Password" Text="{Binding Password}" Style="{StaticResource Key=DefaultEntryStyle}"/>
+                    <control:CustomEntry Placeholder="Password" Text="{Binding Password}" Style="{StaticResource Key=DefaultEntryStyle}" IsPassword="true"/>
 
                     <Button Text="REGISTAR" Style="{StaticResource DefaultButtonStyle}" BackgroundColor="Black" BorderColor="Black" TextColor="White" Command="{Binding RegisterCommand}"/>
 

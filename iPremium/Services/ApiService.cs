@@ -14,13 +14,13 @@ namespace iPremium.Services
 {
     public class ApiService
     {
-        public static string BaseApiUrl = "http://ipremium.pt/umbraco/Api/";
+        const string BaseApiUrl = "http://ipremium.pt/umbraco/Api/";
 
-        public static string UmbracoMemberTypeCustomer = "Customer";
+        const string UmbracoMemberTypeCustomer = "Customer";
 
-        public static string UmbracoMemberTypeAdmin = "Admin";
+        const string UmbracoMemberTypeAdmin = "Admin";
 
-        private static ApiService _instance;
+        static ApiService _instance;
         public static ApiService Instance{
             get { return _instance == null ? _instance = new ApiService() : _instance; }
         }

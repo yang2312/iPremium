@@ -42,7 +42,7 @@
                 <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="15">
                     <control:CustomEntry Placeholder="Username" Text="{Binding UserName}" Style="{StaticResource Key=LoginEntryStyle}"/>
 
-                    <control:CustomEntry Placeholder="Password" Text="{Binding Password}" Style="{StaticResource Key=LoginEntryStyle}"/>
+                    <control:CustomEntry Placeholder="Password" Text="{Binding Password}" Style="{StaticResource Key=LoginEntryStyle}" IsPassword="true"/>
 
                     <Button Text="LOGIN" Style="{StaticResource DefaultButtonStyle}" Command=" {Binding LoginCommand}"/>
 

@@ -149,7 +149,8 @@ namespace iPremium.Models
             return new Schedule {
                 Title = model.Title,
                 Start = model.Start,
-                Status = Enum.GetName(typeof(BookingStatus),model.Status)
+                Status = Enum.GetName(typeof(BookingStatus),18),
+                Phone = model.Phone
             };
         }
     }
