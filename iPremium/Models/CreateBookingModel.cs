@@ -4,7 +4,7 @@ using System.Text;
 
 namespace iPremium.Models
 {
-    public class CreateBookingViewModel:ObservableObject
+    public class CreateBookingModel:ObservableObject
     {
         private string _title;
         public string Title

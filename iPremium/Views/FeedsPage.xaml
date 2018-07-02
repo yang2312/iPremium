@@ -9,7 +9,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <ListView x:Name="FeedListView" ItemsSource="{Binding ListFeeds}" ItemSelected="ListView_ItemSelected" SelectedItem="{Binding SelectedFeedItem}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" CachingStrategy="RecycleElement">
+            <ListView x:Name="FeedListView" ItemsSource="{Binding ListFeeds}" ItemSelected="ListView_ItemSelected" SelectedItem="{Binding SelectedFeedItem}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HasUnevenRows="True" SeparatorVisibility="None" CachingStrategy="RetainElement">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -34,7 +34,7 @@
                                     <Label Margin="10,0" Text="{Binding Title}" Style="{StaticResource DefaultH1Style}" VerticalTextAlignment="End" Grid.Row="2" VerticalOptions="FillAndExpand"/>
 
                                     <Grid Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
-                                        <Label Margin="10,0" Text="{Binding SubTitle}" Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+                                        <Label Margin="10,0" Text="{Binding SmallDescription}" Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Center" VerticalOptions="Center"/>
                                     </Grid>
 
                                 </Grid>

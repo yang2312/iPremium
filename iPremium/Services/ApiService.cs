@@ -14,11 +14,17 @@ namespace iPremium.Services
 {
     public class ApiService
     {
-        public static string BaseApiUrl = "http://ipremium.double.pt/umbraco/Api/";
+        public static string BaseApiUrl = "http://ipremium.pt/umbraco/Api/";
 
         public static string UmbracoMemberTypeCustomer = "Customer";
 
         public static string UmbracoMemberTypeAdmin = "Admin";
+
+        private static ApiService _instance;
+        public static ApiService Instance{
+            get { return _instance == null ? _instance = new ApiService() : _instance; }
+        }
+
         HttpClient _client;
 
         public List<Schedule> _bookings { get; private set; }
@@ -63,7 +69,7 @@ namespace iPremium.Services
         /// <summary>
         /// Will Create a new booking record for the customer 
         /// </summary>
-        public async Task<bool> SaveBooking(CreateBookingViewModel model)
+        public async Task<bool> SaveBooking(CreateBookingModel model)
         {
             var uri = new Uri(BaseApiUrl + "BookingApi/Save");
 

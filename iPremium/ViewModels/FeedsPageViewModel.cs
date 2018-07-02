@@ -1,4 +1,5 @@
 ﻿using iPremium.Models;
+using iPremium.Services;
 using iPremium.Views;
 using System;
 using System.Collections.Generic;
@@ -47,9 +48,9 @@ namespace iPremium.ViewModels
         #region Constructor
         public FeedsPageViewModel()
         {
-            ListFeeds = new ObservableCollection<Feed>() { new Feed { Title = "ONE 2 ONE", SubTitle = "ASSISTÊNCIA NA SUA EMPRESA", Image = "one2one.png", Description = "SDAR DGFDG RDG DSFSDRF WSRF DSCVXC" },
-                                                            new Feed { Title = "PRODUTOS APPLE", SubTitle = "SINTA-SE EM CASE", Image = "mac.png", Description = "SD FG FG WFDSFFSDF FGB DBDFGD" },
-                                                            new Feed { Title = "APRENDE APPLÊS", SubTitle = "TAS TFE VDSD BD", Image = "screen_learn.png", Description = "SVGSFVSVGD EW FGDFVVBGBFE DSF VCXVSF WEFDF VCX VXCV SG GHBGHNRYGERTFR FDG DF G"} };
+            //ListFeeds = new ObservableCollection<Feed>() { new Feed { Title = "ONE 2 ONE", SubTitle = "ASSISTÊNCIA NA SUA EMPRESA", Image = "one2one.png", Description = "SDAR DGFDG RDG DSFSDRF WSRF DSCVXC" },
+            //new Feed { Title = "PRODUTOS APPLE", SubTitle = "SINTA-SE EM CASE", Image = "mac.png", Description = "SD FG FG WFDSFFSDF FGB DBDFGD" },
+            InitData();                                                //new Feed { Title = "APRENDE APPLÊS", SubTitle = "TAS TFE VDSD BD", Image = "screen_learn.png", Description = "SVGSFVSVGD EW FGDFVVBGBFE DSF VCXVSF WEFDF VCX VXCV SG GHBGHNRYGERTFR FDG DF G"} };
         }
         #endregion
 
@@ -57,6 +58,11 @@ namespace iPremium.ViewModels
         #endregion
 
         #region Methods
+        async void InitData(){
+            var listFeeds = await ApiService.Instance.GetServices();
+            if (listFeeds != null)
+                ListFeeds = new ObservableCollection<Feed>(listFeeds);
+        }
         #endregion
     }
 }

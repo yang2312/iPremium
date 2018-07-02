@@ -16,14 +16,14 @@ namespace iPremium.Models
                 OnPropertyChanged(nameof(Title));
             }
         }
-        private string _subTitle;
-        public string SubTitle
+        private int _id;
+        public int Id
         {
-            get { return _subTitle; }
+            get { return _id; }
             set
             {
-                _subTitle = value;
-                OnPropertyChanged(nameof(SubTitle));
+                _id = value;
+                OnPropertyChanged(nameof(Id));
             }
         }
         private string _image;
@@ -32,18 +32,40 @@ namespace iPremium.Models
             get { return _image; }
             set
             {
-                _image = value;
+                if(!string.IsNullOrEmpty(value)){
+                    _image = value.Replace("http://ipremium.double.pt", "http://ipremium.pt");
+                }
                 OnPropertyChanged(nameof(Image));
             }
         }
-        private string _description;
-        public string Description
+        private string _smallDescription;
+        public string SmallDescription
         {
-            get { return _description; }
+            get { return _smallDescription; }
             set
             {
-                _description = value;
-                OnPropertyChanged(nameof(Description));
+                _smallDescription = value;
+                OnPropertyChanged(nameof(SmallDescription));
+            }
+        }
+        private int _leadOwner;
+        public int LeadOwner
+        {
+            get { return _leadOwner; }
+            set
+            {
+                _leadOwner = value;
+                OnPropertyChanged(nameof(LeadOwner));
+            }
+        }
+        private string _feedDetail;
+        public string FeedDetail
+        {
+            get { return _feedDetail; }
+            set
+            {
+                _feedDetail = value;
+                OnPropertyChanged(nameof(FeedDetail));
             }
         }
     }

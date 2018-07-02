@@ -39,6 +39,15 @@ namespace iPremium.ViewModels
             }
         }
 
+        private CreateBookingModel _newBookingItem;
+        public CreateBookingModel NewBookingItem
+        {
+            get { return _newBookingItem; }
+            set{
+                SetProperty(ref _newBookingItem, value);
+            }
+        }
+
         private bool _isShowingAddNewPopUp;
         public bool IsShowingAddNewPopUp
         {
@@ -72,10 +81,7 @@ namespace iPremium.ViewModels
         #region Methods
         void InitData(Feed item)
         {
-            ListSchedules = new ObservableCollection<Schedule>() { new Schedule{ Name="Assistência Técnica",Time = DateTime.Now.ToString(),Status="Confirmado", Code="970 834 847",Description="et sf dgetrerw cdfsda cvbdb dfeferw dbgnyj utyt yretr gf b ngfn hm nmnvb g rg rt r tes v  vbf bdb g nthththgn f gn ghd fg df gdertrg dfbhm gjt dgs v c fhd gwerwtsfg dfb dg fn f t"},
-                new Schedule{ Name="Vendas",Time = DateTime.Now.ToString(),Status="Confirmado", Code="970 834 847"},
-                new Schedule{ Name="Assistência Técnica",Time = DateTime.Now.ToString(),Status="Pendente", Code="970 834 847"},
-                new Schedule{ Name="Assistência Técnica",Time = DateTime.Now.ToString(),Status="Confirmado", Code="970 834 847"}};   
+            
         }
         private void AddNewSchedule()
         {

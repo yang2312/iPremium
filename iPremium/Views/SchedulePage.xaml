@@ -39,9 +39,9 @@
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
 
-                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding Name}" TextColor="Black" FontAttributes="Bold" Margin="20,0,0,0"/>
+                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding Title}" TextColor="Black" FontAttributes="Bold" Margin="20,0,0,0"/>
 
-                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Time}" TextColor="Black" Grid.Row="1" Margin="20,0,0,0"/>
+                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Start}" TextColor="Black" Grid.Row="1" Margin="20,0,0,0"/>
 
                                     <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding Status}" TextColor="#6cd100" Grid.Column="1" Margin="0,0,20,0">
                                         <Label.Triggers>
@@ -53,7 +53,7 @@
                                       </Label.Triggers>
                                     </Label>
 
-                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Code}" TextColor="#08b3ff" Grid.Row="1" Grid.Column="1" Margin="0,0,20,0"/>
+                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Id}" TextColor="#08b3ff" Grid.Row="1" Grid.Column="1" Margin="0,0,20,0"/>
                                 </Grid>
                             </ViewCell.View>
                         </ViewCell>
@@ -83,10 +83,10 @@
 
                         <Label Style="{StaticResource DefaultH3Style}" Margin="0,12" Text="Insira os dados" TextColor="Black" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/> 
 
-                        <Entry Placeholder="Nome" HorizontalOptions="FillAndExpand" Margin="20,0" FontSize="12" HeightRequest="24"/>
-                        <Entry Placeholder="Tipo de Marcação" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
-                        <Entry Placeholder="Data Pretendida" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
-                        <Entry Placeholder="Descrição" HorizontalOptions="FillAndExpand" Margin="20,5,20,15" FontSize="12" HeightRequest="50"/>
+                        <Entry Placeholder="Nome" Text="{Binding NewBookingItem.Customer}" HorizontalOptions="FillAndExpand" Margin="20,0" FontSize="12" HeightRequest="24"/>
+                        <Entry Placeholder="Tipo de Marcação" Text="{Binding NewBookingItem.Customer}" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
+                        <Entry Placeholder="Data Pretendida" Text="{Binding NewBookingItem.Start}" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
+                        <Entry Placeholder="Descrição" Text="{Binding NewBookingItem.Customer}" HorizontalOptions="FillAndExpand" Margin="20,5,20,15" FontSize="12" HeightRequest="50"/>
 
                         <Grid ColumnSpacing="0">
                             <Grid.ColumnDefinitions>

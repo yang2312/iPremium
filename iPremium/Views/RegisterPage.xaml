@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:iPremium.ViewModels"
@@ -30,15 +30,15 @@
                 </Grid.ColumnDefinitions>
 
                 <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="15">
-                    <control:CustomEntry Placeholder="Name" Style="{StaticResource Key=DefaultEntryStyle}"/>
+                    <control:CustomEntry Placeholder="Name" Text="{Binding Name}" Style="{StaticResource Key=DefaultEntryStyle}"/>
 
-                    <control:CustomEntry Placeholder="email@email.com" Style="{StaticResource Key=DefaultEntryStyle}"/>
-                    
-                    <control:CustomEntry Placeholder="Telefone" Style="{StaticResource Key=DefaultEntryStyle}"/>
-                    
-                    <control:CustomEntry Placeholder="Password" Style="{StaticResource Key=DefaultEntryStyle}"/>
+                    <control:CustomEntry Placeholder="email@email.com" Text="{Binding Email}" Style="{StaticResource Key=DefaultEntryStyle}"/>
 
-                    <Button Text="REGISTAR" Style="{StaticResource DefaultButtonStyle}" BackgroundColor="Black" BorderColor="Black" TextColor="White"/>
+                    <control:CustomEntry Placeholder="Telefone" Text="{Binding Phone}" Style="{StaticResource Key=DefaultEntryStyle}"/>
+                    
+                    <control:CustomEntry Placeholder="Password" Text="{Binding Password}" Style="{StaticResource Key=DefaultEntryStyle}"/>
+
+                    <Button Text="REGISTAR" Style="{StaticResource DefaultButtonStyle}" BackgroundColor="Black" BorderColor="Black" TextColor="White" Command="{Binding RegisterCommand}"/>
 
                     <Button Text="COSTAS" Style="{StaticResource DefaultButtonStyle}" BackgroundColor="Black" BorderColor="Black" TextColor="White" Command="{Binding BackCommand}"/>
                 </StackLayout>
