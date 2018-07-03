@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:iPremium.ViewModels"
+             xmlns:control="clr-namespace:iPremium.Controls"
              x:Class="iPremium.Views.UserInfoPage" Padding="0,20,0,0">
     <ContentPage.BindingContext>
         <vm:UserInfoPageViewModel />
@@ -26,10 +27,16 @@
             </Grid>
 
             <StackLayout Grid.Row="1" Orientation="Vertical" Margin="20,30">
-                <Label Style="{StaticResource DefaultH2Style}" Text="OLA USERNAME" FontAttributes="Bold" TextColor="Black"/>
-                <Label Style="{StaticResource DefaultH2Style}" Text="userName@email.com" TextColor="Black"/>
+                <Label Style="{StaticResource DefaultH2Style}" Text="{Binding UserInfo.Username}" FontAttributes="Bold" TextColor="Black"/>
+                <Label Style="{StaticResource DefaultH2Style}" Text="{Binding UserInfo.Username}" TextColor="Black"/>
 
-                <Button Text="mudar password" Margin="0,10" TextColor="Black" Style="{StaticResource NonBorderStyle}" HorizontalOptions="Start"/>
+                <Button Text="mudar password" Margin="0,10" TextColor="Black" Style="{StaticResource NonBorderStyle}" HorizontalOptions="Start" Command="{Binding ShowingResetPasswordCommand}"/>
+
+                <StackLayout IsVisible="{Binding IsShowingResetPassword}">
+                    <control:CustomEntry Placeholder="Old Password" Text="{Binding OldPassword}" Style="{StaticResource Key=DefaultEntryStyle}"/>
+                    <control:CustomEntry Placeholder="New Password" Text="{Binding NewPassword}" Style="{StaticResource Key=DefaultEntryStyle}"/>
+                    <Button Style="{StaticResource DefaultButtonStyle}" Text="Mudar" Command="{Binding ResetPasswordCommand}" TextColor="Black" BorderColor="Black" Grid.Column="1" VerticalOptions="Start"/>
+                </StackLayout>
             </StackLayout>
 
             <Grid Grid.Row="2">
@@ -38,7 +45,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Style="{StaticResource DefaultButtonStyle}" Text="Logout" Command="{Binding NavigateToCalendarCommand}" TextColor="Black" BorderColor="Black" Grid.Column="1" VerticalOptions="Start"/>
+                <Button Style="{StaticResource DefaultButtonStyle}" Text="Logout" Command="{Binding LogOutCommand}" TextColor="Black" BorderColor="Black" Grid.Column="1" VerticalOptions="Start"/>
             </Grid>
         </Grid>
     </ContentPage.Content>

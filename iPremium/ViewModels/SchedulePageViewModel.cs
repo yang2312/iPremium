@@ -123,8 +123,13 @@ namespace iPremium.ViewModels
         private async void AddNewSchedule()
         {
             IsBusy = true;
-            if(App.UserInfo == null){
-                App.Current.MainPage = new LoginPage();
+            if(string.IsNullOrEmpty(App.UserInfo.Username)){
+                await App.Current.MainPage.DisplayAlert("Notar", "Você deve fazer o login antes de usar este recurso", "OK");
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    App.Current.MainPage = new LoginPage();
+                });
+                return;
             }
             var result = await ApiService.Instance.SaveBooking(NewBookingItem);
 

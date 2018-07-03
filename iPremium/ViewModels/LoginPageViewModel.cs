@@ -61,7 +61,7 @@ namespace iPremium.ViewModels
             var result = await ApiService.Instance.HandleMemberLogin(UserName, Password);
             if (result)
             {
-                App.UserInfo = new Models.Account { Name = UserName, Password = Password };
+                App.UserInfo = new Models.Account { Name = UserName, Password = Password,MemberType = Models.MemberType.Member,Username = UserName };
                 App.Current.MainPage = new MainTabbedPage();   
             }
             else
