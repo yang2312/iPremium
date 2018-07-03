@@ -26,15 +26,9 @@ namespace iPremium.Models
                 OnPropertyChanged(nameof(AllDay));
             }
         }
-        private DateTime _start;
         public DateTime Start
         {
-            get { return _start; }
-            set
-            {
-                _start = value;
-                OnPropertyChanged(nameof(Start));
-            }
+            get { return DateStart + TimeStart; }
         }
         private int _status;
         public int Status
@@ -49,11 +43,11 @@ namespace iPremium.Models
         private string _customer;
         public string Customer
         {
-            get { return App.UserInfo != null ? App.UserInfo.Name : _customer; }
+            get { return App.UserInfo != null ? App.UserInfo.Username : _customer; }
             set
             {
                 _customer = value;
-                OnPropertyChanged(nameof(Status));
+                OnPropertyChanged(nameof(Customer));
             }
         }
         private string _phone;
@@ -84,6 +78,26 @@ namespace iPremium.Models
             {
                 _email = value;
                 OnPropertyChanged(nameof(Email));
+            }
+        }
+        private DateTime _dateStart = DateTime.Now;
+        public DateTime DateStart
+        {
+            get { return _dateStart; }
+            set
+            {
+                _dateStart = value;
+                OnPropertyChanged(nameof(DateStart));
+            }
+        }
+        private TimeSpan _timeStart = DateTime.Now.TimeOfDay.Add(TimeSpan.FromHours(1));
+        public TimeSpan TimeStart
+        {
+            get { return _timeStart; }
+            set
+            {
+                _timeStart = value;
+                OnPropertyChanged(nameof(TimeStart));
             }
         }
     }

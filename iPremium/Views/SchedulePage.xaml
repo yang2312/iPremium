@@ -77,7 +77,8 @@
 
                         <Entry Placeholder="Nome" Text="{Binding NewBookingItem.Customer}" HorizontalOptions="FillAndExpand" Margin="20,0" FontSize="12" HeightRequest="24"/>
                         <Entry Placeholder="Tipo de Marcação" Text="{Binding NewBookingItem.Email}" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
-                        <Entry Placeholder="Data Pretendida" Text="{Binding NewBookingItem.Start}" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
+                        <DatePicker Date="{Binding NewBookingItem.DateStart}" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
+                        <TimePicker Time="{Binding NewBookingItem.TimeStart}" Format="dd/MM/yyyy" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
                         <Entry Placeholder="Descrição" Text="{Binding NewBookingItem.Title}" HorizontalOptions="FillAndExpand" Margin="20,5,20,15" FontSize="12" HeightRequest="50"/>
 
                         <Grid ColumnSpacing="0">

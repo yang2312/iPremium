@@ -44,7 +44,7 @@ namespace iPremium.ViewModels
         private CreateBookingModel _newBookingItem;
         public CreateBookingModel NewBookingItem
         {
-            get { return _newBookingItem; }
+            get { return _newBookingItem ?? (_newBookingItem = new CreateBookingModel()); }
             set{
                 SetProperty(ref _newBookingItem, value);
             }
@@ -93,7 +93,18 @@ namespace iPremium.ViewModels
         public SchedulePageViewModel()
         {
             AddNewCommand = new Command(AddNewSchedule);
-            ShowAddNewPopupCommand = new Command(() => IsShowingAddNewPopUp = true);
+            ShowAddNewPopupCommand = new Command(async () => {
+                if (string.IsNullOrEmpty(App.UserInfo.Username))
+                {
+                    await App.Current.MainPage.DisplayAlert("Notar", "Você deve fazer o login antes de usar este recurso", "OK");
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        App.Current.MainPage = new LoginPage();
+                    });
+                    return;
+                }
+                IsShowingAddNewPopUp = true;
+            });
             DisposeAddNewPopupCommand = new Command(() => IsShowingAddNewPopUp = false);
 
             InitData();
@@ -123,14 +134,7 @@ namespace iPremium.ViewModels
         private async void AddNewSchedule()
         {
             IsBusy = true;
-            if(string.IsNullOrEmpty(App.UserInfo.Username)){
-                await App.Current.MainPage.DisplayAlert("Notar", "Você deve fazer o login antes de usar este recurso", "OK");
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    App.Current.MainPage = new LoginPage();
-                });
-                return;
-            }
+            
             var result = await ApiService.Instance.SaveBooking(NewBookingItem);
 
             await App.Current.MainPage.DisplayAlert("Notar", result ? "Faça o calendário bem sucedido" : "Confirmar um compromisso", "OK");

@@ -13,7 +13,7 @@ namespace iPremium.iOS.Renderers
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
-
+            
             Control.AttributedPlaceholder = new Foundation.NSAttributedString(Control.Placeholder, new UIStringAttributes { ForegroundColor = Control.TextColor, Font=UIFont.FromName("Avenir Next",10)});
             Control.Layer.BorderColor = Control.TextColor.CGColor;
             Control.Layer.BorderWidth = 1;
