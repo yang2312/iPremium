@@ -4,7 +4,7 @@
              xmlns:control="clr-namespace:iPremium.Controls"
              xmlns:vm="clr-namespace:iPremium.ViewModels"
              xmlns:view="clr-namespace:iPremium.Views"
-             x:Class="iPremium.Views.SchedulePage"  Padding="0,20,0,0">
+             x:Class="iPremium.Views.SchedulePage">
     <ContentPage.BindingContext>
         <vm:SchedulePageViewModel />
     </ContentPage.BindingContext>
@@ -41,7 +41,7 @@
 
                                     <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding Title}" TextColor="Black" FontAttributes="Bold" Margin="20,0,0,0"/>
 
-                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Start}" TextColor="Black" Grid.Row="1" Margin="20,0,0,0"/>
+                                    <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding Start,StringFormat='{0:dd/MM/yyyy hh:mm}'}" TextColor="Black" Grid.Row="1" Margin="20,0,0,0"/>
 
                                     <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="End" Text="{Binding Status}" TextColor="{Binding Color}" Grid.Column="1" Margin="0,0,20,0"/>
                                         
@@ -76,6 +76,7 @@
                         <Label Style="{StaticResource DefaultH3Style}" Margin="0,12" Text="Insira os dados" TextColor="Black" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/> 
 
                         <Entry Placeholder="Nome" Text="{Binding NewBookingItem.Customer}" HorizontalOptions="FillAndExpand" Margin="20,0" FontSize="12" HeightRequest="24"/>
+
                         <Entry Placeholder="Tipo de Marcação" Text="{Binding NewBookingItem.Customer}" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
                         <DatePicker Date="{Binding NewBookingItem.DateStart}" Format="dd/MM/yyyy" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>
                         <TimePicker Time="{Binding NewBookingItem.TimeStart}" HorizontalOptions="FillAndExpand" Margin="20,5,20,0" FontSize="12" HeightRequest="24"/>

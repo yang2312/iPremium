@@ -44,7 +44,7 @@ namespace iPremium.ViewModels
         private CreateBookingModel _newBookingItem;
         public CreateBookingModel NewBookingItem
         {
-            get { return _newBookingItem ?? (_newBookingItem = new CreateBookingModel()); }
+            get { return _newBookingItem; }
             set{
                 SetProperty(ref _newBookingItem, value);
             }
@@ -94,16 +94,13 @@ namespace iPremium.ViewModels
         {
             AddNewCommand = new Command(AddNewSchedule);
             ShowAddNewPopupCommand = new Command(async () => {
-                if (string.IsNullOrEmpty(App.UserInfo.Username))
+                if(string.IsNullOrEmpty(App.UserInfo.Username))
                 {
                     await App.Current.MainPage.DisplayAlert("Notar", "Você deve fazer o login antes de usar este recurso", "OK");
-                    Device.BeginInvokeOnMainThread(() =>
-                    {
-                        App.Current.MainPage = new LoginPage();
-                    });
+                    App.Current.MainPage = new LoginPage();
                     return;
                 }
-                IsShowingAddNewPopUp = true;
+                IsShowingAddNewPopUp = true;   
             });
             DisposeAddNewPopupCommand = new Command(() => IsShowingAddNewPopUp = false);
 
@@ -123,7 +120,7 @@ namespace iPremium.ViewModels
         async void InitData()
         {
             IsBusy = true;
-            if(App.UserInfo != null)
+            if(!string.IsNullOrEmpty(App.UserInfo.Username))
             {
                 var list = await ApiService.Instance.GetBookingsForCustomer(App.UserInfo.Username);
                 if (list != null)
@@ -134,7 +131,7 @@ namespace iPremium.ViewModels
         private async void AddNewSchedule()
         {
             IsBusy = true;
-            
+
             var result = await ApiService.Instance.SaveBooking(NewBookingItem);
 
             await App.Current.MainPage.DisplayAlert("Notar", result ? "Faça o calendário bem sucedido" : "Confirmar um compromisso", "OK");

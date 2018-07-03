@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:vm="clr-namespace:iPremium.ViewModels"
              xmlns:control="clr-namespace:iPremium.Controls"
-             x:Class="iPremium.Views.UserInfoPage" Padding="0,20,0,0">
+             x:Class="iPremium.Views.UserInfoPage">
     <ContentPage.BindingContext>
         <vm:UserInfoPageViewModel />
     </ContentPage.BindingContext>
