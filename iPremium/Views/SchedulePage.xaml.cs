@@ -11,5 +11,10 @@ namespace iPremium.Views
         {
             InitializeComponent();
         }
+
+        private void CustomListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            (sender as ListView).SelectedItem = null;
+        }
     }
 }

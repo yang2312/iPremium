@@ -54,6 +54,10 @@
             <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Não tenho conta. Registar."  Style="{StaticResource NonBorderStyle}" HorizontalOptions="Center" VerticalOptions="Start" Command="{Binding RegisterCommand}"/>
 
             <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Faça o login como convidado." Margin="10" Style="{StaticResource NonBorderStyle}" Command="{Binding LoginAsGuestCommand}" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
+
+            <Grid IsVisible="{Binding IsBusy}" Grid.RowSpan="3" Grid.ColumnSpan="3" BackgroundColor="Black" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ActivityIndicator  IsRunning="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="White" HeightRequest="50" WidthRequest="50"/>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

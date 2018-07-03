@@ -58,14 +58,20 @@ namespace iPremium.ViewModels
 
         private async void Login()
         {
+            IsBusy = true;
             var result = await ApiService.Instance.HandleMemberLogin(UserName, Password);
             if (result)
             {
-                App.UserInfo = new Models.Account { Name = UserName, Password = Password,MemberType = Models.MemberType.Member,Username = UserName };
-                App.Current.MainPage = new MainTabbedPage();   
+                var userInfo = await ApiService.Instance.GetMember(UserName);
+                if(userInfo != null)
+                {
+                    App.UserInfo = new Models.Account { Name = userInfo.Name, Password = userInfo.Password, MemberType = userInfo.MemberType, Username = userInfo.Username,Message = userInfo.Message,Phone = userInfo.Phone };
+                    App.Current.MainPage = new MainTabbedPage();
+                    return;
+                }
             }
-            else
-                await App.Current.MainPage.DisplayAlert("Atenção","Nome de usuário ou senha incorretos","Cancel");
+            await App.Current.MainPage.DisplayAlert("Atenção","Nome de usuário ou senha incorretos","Cancel");
+            IsBusy = false;
         }
 
         private void NavigateToRegisterPage()

@@ -45,15 +45,8 @@
 
             <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding ScheduleItem.Start}" TextColor="Black" Grid.Row="1" Margin="20,0,0,0"/>
 
-            <Label Style="{StaticResource DefaultH3Style}" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="{Binding ScheduleItem.Status}" TextColor="#6cd100" Grid.Column="1" Grid.RowSpan="2" Margin="0,0,20,0">
-                <Label.Triggers>
-                  <DataTrigger TargetType="Label"
-                      Binding="{Binding Status}"
-                      Value="Pendente">
-                      <Setter Property="TextColor" Value="Black" />
-                  </DataTrigger>
-              </Label.Triggers>
-            </Label>
+            <Label Style="{StaticResource DefaultH3Style}" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="{Binding ScheduleItem.Status}" TextColor="{Binding ScheduleItem.Color}" Grid.Column="1" Grid.RowSpan="2" Margin="0,0,20,0"/>
+
         </Grid>
         
         <Label Style="{StaticResource DefaultH3Style}" VerticalTextAlignment="Start" Text="{Binding ScheduleItem.Description}" TextColor="Black" Grid.Row="1" Margin="20,0"/>
@@ -68,8 +61,14 @@
         </Grid.ColumnDefinitions>
 
         <StackLayout Grid.Column="1" Spacing="50" VerticalOptions="CenterAndExpand">
-            <Label Style="{StaticResource DefaultH2Style}" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Text="{Binding ScheduleItem.Id}" TextColor="#08b3ff" Grid.Column="1"/>
-            <Button Style="{StaticResource DefaultButtonStyle}" Text="CANCELAR MARCAÇÃO" Command="{Binding ShowCancelPopupCommand}" TextColor="#fc1515" BorderColor="#fc1515" Grid.Column="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>    
+            <Label Style="{StaticResource DefaultH2Style}" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Text="{Binding ScheduleItem.Phone}" TextColor="#08b3ff" Grid.Column="1"/>
+            <Button Style="{StaticResource DefaultButtonStyle}" Text="CANCELAR MARCAÇÃO" Command="{Binding ShowCancelPopupCommand}" TextColor="#fc1515" BorderColor="#fc1515" Grid.Column="1" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding ScheduleItem.Status}" Value="Cancelado">
+                        <Setter Property="IsEnabled" Value="False"/>
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
         </StackLayout>
     </Grid>
     <Grid Grid.RowSpan="3" IsVisible="{Binding IsShowingCancelingPopUp}">

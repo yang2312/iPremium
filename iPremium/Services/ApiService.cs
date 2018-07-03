@@ -75,7 +75,7 @@ namespace iPremium.Services
 
             try
             {
-                var stringContent = JsonConvert.SerializeObject(model);
+                var stringContent = JsonConvert.SerializeObject((NewBookingModel)model);
                 var response = await _client.PostAsync(uri, new StringContent(stringContent, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
                 {
