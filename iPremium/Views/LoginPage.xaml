@@ -39,7 +39,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="15">
+                <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="20">
                     <control:CustomEntry Placeholder="Username" Text="{Binding UserName}" Style="{StaticResource Key=LoginEntryStyle}"/>
 
                     <control:CustomEntry Placeholder="Password" Text="{Binding Password}" Style="{StaticResource Key=LoginEntryStyle}" IsPassword="true"/>
@@ -53,7 +53,7 @@
 
             <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Não tenho conta. Registar."  Style="{StaticResource NonBorderStyle}" HorizontalOptions="Center" VerticalOptions="Start" Command="{Binding RegisterCommand}"/>
 
-            <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Faça o login como convidado." Margin="10" Style="{StaticResource NonBorderStyle}" Command="{Binding LoginAsGuestCommand}" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="3" Text="Faça o login como convidado." Margin="20" Style="{StaticResource NonBorderStyle}" Command="{Binding LoginAsGuestCommand}" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
 
             <Grid IsVisible="{Binding IsBusy}" Grid.RowSpan="3" Grid.ColumnSpan="3" BackgroundColor="Black" Opacity="0.5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <ActivityIndicator  IsRunning="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="White" HeightRequest="50" WidthRequest="50"/>

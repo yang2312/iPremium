@@ -3,7 +3,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style TargetType="Entry" x:Key="DefaultEntryStyle">
-                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="HeightRequest" Value="35"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="FontSize" Value="10"/>
@@ -12,7 +12,7 @@
             </Style>
             <Style TargetType="Button" x:Key="DefaultButtonStyle">
                 <Setter Property="CornerRadius" Value="10"/>
-                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="HeightRequest" Value="35"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="BorderWidth" Value="1"/>
                 <Setter Property="BorderColor" Value="White"/>

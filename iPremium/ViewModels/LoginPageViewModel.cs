@@ -70,7 +70,7 @@ namespace iPremium.ViewModels
                     return;
                 }
             }
-            await App.Current.MainPage.DisplayAlert("Atenção","Nome de usuário ou senha incorretos","Cancel");
+            await App.Current.MainPage.DisplayAlert("Atenção","Nome de utilizador ou senha incorretos","Cancel");
             IsBusy = false;
         }
 

@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:iPremium.ViewModels"
              x:Class="iPremium.Views.FeedDetailPage" BackgroundColor="White" IsVisible="{Binding IsShowingFeedDetail}">
+    <Grid.GestureRecognizers>
+                <TapGestureRecognizer
+                Command="{Binding GoBackCommand}"
+                NumberOfTapsRequired="1" />
+            </Grid.GestureRecognizers>
     <Grid.BindingContext>
         <vm:FeedDetailPageViewModel />
     </Grid.BindingContext>
@@ -22,14 +27,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.RowSpan="2" Source="back.png" HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer
-                Command="{Binding GoBackCommand}"
-                NumberOfTapsRequired="1" />
-            </Image.GestureRecognizers>
-        </Image>
-
+        <Image Grid.RowSpan="2" Source="back.png" HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0"/>
+           
         <Label Margin="20,0" Text="{Binding FeedItem.Title}" Style="{StaticResource DefaultH1Style}" HorizontalOptions="FillAndExpand" VerticalTextAlignment="End" Grid.Row="2" VerticalOptions="FillAndExpand"/>
 
         <Grid Grid.Row="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">

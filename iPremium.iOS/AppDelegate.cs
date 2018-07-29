@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using HockeyApp.iOS;
 using Newtonsoft.Json.Linq;
 
 namespace iPremium.iOS
@@ -33,10 +34,26 @@ namespace iPremium.iOS
             UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
+            PrepareHockeyKey();
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+        /// <summary>
+        /// enabling hockeyKey app to collect app stats. errors, performance etc...
+        /// </summary>
+        void PrepareHockeyKey()
+        {
+            // link to app at hockeyKey
+            // https://rink.hockeyapp.net/manage/apps/458150 
+            // the ipremium app id from the link above
+            var appID = "ad79ac054b04425db6e54a80bd42d5a6";
+            var manager = BITHockeyManager.SharedHockeyManager;
+            manager.Configure(appID);
+            manager.StartManager();
+            manager.Authenticator.AuthenticateInstallation();
         }
         public override void RegisteredForRemoteNotifications(UIApplication application,NSData deviceToken)
         {
